@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head></head>
+<body>
+<div id="num1" about="Elephant"></div>
+<script>
+
+   console.log(num1.attributes)
+
+  console.log(num1.getAttribute("About")); 
+
+   num1.setAttribute("Test", 123); 
+
+   console.log(num1.hasAttribute("test"));
+
+   console.log(num1.outerHTML); 
+
+   num1.removeAttribute("Test");
+
+   for (let attr of num1.attributes) 
+
+   {
+
+       console.log(`${attr.name} = ${attr.value}`);
+
+   }
+
+</body>
+</html>
+
+
