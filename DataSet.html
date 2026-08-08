@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div id="numID" class="num1" data-ffont="h">Hello</div>
+  <style>
+    .num1[data-ffont="h"]
+    {
+      color : blue
+    }
+    .num1[data-ffont="c"]
+    {
+      color :palevioletred;
+    }
+    .num1[data-ffont="b"]
+    {
+      color:crimson; background-color:aquamarine;
+    }
+  </style>
+  <script>
+    console.log(numID.dataset.ffont);
+    numID.dataset.ffont = "b"
+    console.log(numID.dataset.ffont);
+  </script>
+</body>
+</html>
