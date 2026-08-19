@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <div id="abc" style="display: none;">Hello</div>
+
+  <script>
+    const isHidden = element => !element.offsetWidth && !element.offsetHeight;
+    const element = document.getElementById('abc');
+    console.log(element)
+    alert("Is the element hidden? " + isHidden(element));
+  </script>
+
+</body>
+</html>
