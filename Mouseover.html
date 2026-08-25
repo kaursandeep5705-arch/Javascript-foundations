@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button id="abc" onclick="Remove()">Stop</button>
+<h1 id="start">Give me a hi-fi</h1>
+<h6 id="txt"></h6>
+<script>
+        const b=document.getElementById("start");
+        b.addEventListener("mouseover", add);
+    function add()
+    {
+        document.getElementById("txt").innerHTML += "Mouse is saying hi" + "<br>";
+    }
+    function Remove()
+    {
+        b.removeEventListener("mouseover", add);
+        document.getElementById("txt").innerHTML += "Mouse said bye and left";
+    }
+</script>   
+</body>
+</html>
