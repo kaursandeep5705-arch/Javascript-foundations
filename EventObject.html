@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input  id="abc" type="button" value="Click me" />
+<script>
+abc.onclick = function (event) 
+{
+alert(event.type + " at " + event.currentTarget);
+alert("Coordinates: " + event.clientX + ":" + event.clientY);
+alert("The id of the target is: " + event.target.id);
+};
+</script>
+</body>
+</html>
