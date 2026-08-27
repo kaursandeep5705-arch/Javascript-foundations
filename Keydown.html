@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
 <meta charset="utf-8" />
 <script>
 function setfocuscolor1() 
@@ -18,5 +20,51 @@ Name
 <input type="text" id="myname" name="myname" onfocus="setfocuscolor1()" />
 Course Name 
 <input type="text" id="mycourse" onfocus="setfocuscolor2()" />
+=======
+    <meta charset="UTF-8">
+    <script>
+        function eve(e){
+            if((e.keyCode>64 && e.keyCode<91) || (e.keyCode>97 && e.keyCode<123))
+            {
+                return false;
+            }
+            else{
+                return true ;
+            }
+        }
+        function bill()
+        {
+            var a=document.getElementById("item").value;
+            var b=document.getElementById("qnty").value;
+            if(a=="Donut")
+        {
+            document.write("Amount " + b*30)
+        }
+           if(a=="Noodles")
+        {
+            document.write("Amount " + b*50)
+        }
+           if(a=="Ice Cream")
+        {
+            document.write("Amount " + b*40)
+        }
+        }
+    </script>
+</head>
+<body>
+    <h1>Restaurant menu</h1>
+    <ul>
+        <li>Donut = 30</li>
+        <li>Noodles = 50</li>
+        <li>Ice cream = 40</li>
+    </ul>
+<form>
+Item Name
+<input type="text" id="item" name="a">
+Quantity
+<input type="text" id="qnty" name="b" onkeydown="return eve(event)"/>
+<input type="button" value="Print bill" onclick="bill()">
+</form>
+>>>>>>> 0c125c48645ce604d084b321d8e3e9e59ff30a27
 </body>
 </html>
