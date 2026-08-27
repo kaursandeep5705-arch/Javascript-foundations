@@ -3,47 +3,20 @@
 <head>
 <meta charset="utf-8" />
 <script>
-function checkquantity(e) 
+function setfocuscolor1() 
 {
-if ((e.key > 64 && e.key < 91) || (e.key > 96 && e.key < 123)) 
-{
-return false;
-} else {
-return true;
+document.getElementById("myname").style.backgroundColor = "#ccffdd";
 }
-}
-function printbill() 
+function setfocuscolor2() 
 {
-var itemname = document.getElementById("itemname").value;
-var quantity = document.getElementById("quantity").value;
-if (itemname == "Coffee") 
-{
-document.write("Amount " + quantity * 20);
-}
-if (itemname == "Pizza") 
-{
-document.write("Amount " + quantity * 100);
-}
-if (itemname == "Tea") 
-{
-document.write("Amount " + quantity * 10);
-}
+document.getElementById("mycourse").style.backgroundColor = "#ccffdd";
 }
 </script>
 </head>
 <body>
-<h1>Restaurant Bill</h1>
-<ul>
-<li>Coffee - 20</li>
-<li>Pizza - 100</li>
-<li>Tea - 10</li>
-</ul>
-<form>
-Item Name
-<input type="text" id="itemname" name="itemname" />
-Quantity
-<input type="text" id="quantity" name="quantity" onkeydown=" return checkquantity(event)" />
-<input type="button" onclick="printbill()" value="Print Bill" />
-</form>
+Name
+<input type="text" id="myname" name="myname" onfocus="setfocuscolor1()" />
+Course Name 
+<input type="text" id="mycourse" onfocus="setfocuscolor2()" />
 </body>
 </html>
