@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<style>
+    body *{
+        margin:10px;
+        border:1px solid blue;
+    }
+</style> 
+<form >FORM
+    <div>DIV
+        <P>P</P>
+    </div>
+</form>
+<script>
+    for(let i of document.querySelectorAll("*"))
+{
+    i.addEventListener("click", (e)=>alert(`Capturing:${i.tagName}`),true);
+    i.addEventListener("click", (e)=>alert(`Bubbling:${i.tagName}`));
+
+}
+</script>   
+</body>
+</html>
