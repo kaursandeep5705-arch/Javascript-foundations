@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <script>
+        const a= "Hi";
+        const b= Promise.resolve("Hello");
+        const c=new Promise((resolve,reject)=> {
+            resolve("Bye")
+        })
+        Promise.all([a,b,c])
+        .then((val)=>{
+    console.log(val)})
+    </script>
+</body>
+</html>
