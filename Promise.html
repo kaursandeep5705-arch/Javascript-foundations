@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+</head>
 <body>
 <script>
-    function check (marks){
-        return new Promise((resolve, reject)=>{
-            if(marks>33)
-        {
-            resolve("Congratulations , You have passed ")
-        }
-        else{
-            reject("Fail")
-        }
-        });
+    function hi(age)
+    {
+        return new Promise((resolve,reject)=>
+    {
+        if(age>=13&&age<=19)
+        resolve("You are a teen");
+    else
+    reject("You are not a teen")
+    })
     }
-check(100)
-.then((result)=>{
-alert(result)})
-.catch((err)=>{
-    alert(err)})
+    hi(20)
+    .then((result)=> {
+        alert(result);
+    })
+    .catch((err)=>{
+        alert(err)
+    })
     .finally(()=>{
-        alert("Result declared")})
+        alert("Have a happy life");
+    })
 </script>    
 </body>
 </html>
