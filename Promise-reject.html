@@ -4,13 +4,13 @@
 </head>
 <body>
     <script>
-       const resolved = (result) => {
-       console.log('Resolved');
-       }
-       const rejected = (reason) => {
-       console.error(reason);
-       }
-       Promise.reject(new Error('fail')).then(resolved, rejected);
+        const a=(result)=>{
+            console.log("Resolved")
+        }
+        const b=(reason)=>{
+            console.error(reason);
+        }
+        Promise.reject(new Error('Fail')).then(a,b);
     </script>
     
 </body>
