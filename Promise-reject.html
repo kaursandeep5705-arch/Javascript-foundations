@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <script>
+       const resolved = (result) => {
+       console.log('Resolved');
+       }
+       const rejected = (reason) => {
+       console.error(reason);
+       }
+       Promise.reject(new Error('fail')).then(resolved, rejected);
+    </script>
+    
+</body>
+</html>
