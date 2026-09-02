@@ -1,18 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 </head>
 <body>
     <script>
-        const a= "Hi";
-        const b= Promise.resolve("Hello");
-        const c=new Promise((resolve,reject)=> {
-setTimeout(reject, 5000, "bye");        })
+        const a="Hi";
+        const b=Promise.resolve("Hello")
+        const c=new Promise((resolve,reject)=>{
+            setTimeout(reject,4000,"Bye")
+        })
         Promise.allSettled([a,b,c])
         .then((p)=>
-            p.forEach((result)=>{
-        console.log(result.status)
-    }));
+    {
+        p.forEach((r)=>{
+        console.log(r);
+    console.log(r.status)})
+    })
     </script>
+    
 </body>
 </html>
