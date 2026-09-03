@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <script>
+     function hi()
+     {
+      return new Promise((resolve)=>
+    {
+      setTimeout(()=>{
+        resolve("Say hi")},4000);
+    })
+     }
+     async function hi2(){
+      const hi2=await hi()
+        console.log("You have to: ", hi2)
+     }
+      hi2()
+      {
+        console.log("Say Bye")
+      }
+     </script>    
+</body>
+</html> 
