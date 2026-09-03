@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<script>
+    function one()
+    {
+        return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("Say hi")},3000)})
+    }
+    function two()
+    {
+        return new Promise((resolve)=>{
+            setTimeout(()=>
+        {
+            resolve("Say Bye")},4000)})
+    }
+    function three()
+    {
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+        resolve("Say Hello")},7000)
+        })
+    }
+    async function car()
+    {
+        const[a,b,c]=await Promise.all([one(),two(),three()]);
+        console.log(`${a}\n${b}\n${c}`)
+    
+    }
+    car()
+</script>    
+</body>
+</html>
