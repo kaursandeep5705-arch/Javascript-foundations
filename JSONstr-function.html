@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<div id="abc"></div>
+<body>
+    <script>
+        let a={
+            name:"John",
+            age: function()
+            {return 20}
+        }
+        a.age=a.age().toString();
+        let b=JSON.stringify(a)
+        document.getElementById("abc").innerHTML=b;
+    </script>
+</body>
+</html>
