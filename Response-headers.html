@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <script>
+        const url = "https://jsonplaceholder.typicode.com/users";
+        let a={
+            name:"John"
+        }
+        let fd={
+            method:"POST",
+            body:JSON.stringify(a),
+            headers: new Headers({
+                "Content-Type":"application/json ; charset=UTF-8"
+            })
+        }
+        fetch(url,fd).then((response)=>{
+            console.log(response.json())
+        })
+    </script>
+</body>
+</html>
