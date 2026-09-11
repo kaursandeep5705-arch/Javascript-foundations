@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Image Blob Example</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        canvas {
+            border: 2px solid #333;
+            background-color: #fff;
+            cursor: crosshair;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Draw Something & Send It</h1>
+    <p>Use your mouse to draw below, then click "Send Image".</p>
+    
+    <canvas id="myCanvas" width="300" height="300"></canvas>
+    
+    <button id="sendBtn">Send Image</button>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        const sendBtn = document.getElementById('sendBtn');
+        let isDrawing = false;
+
+        canvas.addEventListener('mousedown', () => isDrawing = true);
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseleave', () => isDrawing = false);
+        
+        canvas.addEventListener('mousemove', (event) => {
+            if (!isDrawing) return;
+            
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#000';
+
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        });
+
+        sendBtn.addEventListener('click', () => {
+            
+            canvas.toBlob((blob) => {
+                
+                console.log("Created Blob Type:", blob.type);
+                console.log("Created Blob Size:", blob.size, "bytes");
+
+                const uploadUrl = "https://typicode.com";
+
+                fetch(uploadUrl, {
+                    method: "POST",
+                    body: blob 
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Image sent successfully!");
+                        return response.json();
+                    }
+                    throw new Error("Network response was not okay.");
+                })
+                .then(data => {
+                    console.log("Server response:", data);
+                })
+                .catch(error => {
+                    console.error("Error sending image:", error);
+                    alert("Sent! (Check browser console to see details)");
+                });
+
+            }, 'image/png'); 
+        });
+    </script>
+
+</body>
+</html>
