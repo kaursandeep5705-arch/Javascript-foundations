@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and View Live Image</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background-color: #f7f9fa;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+        #preview {
+            max-width: 100%;
+            max-height: 250px;
+            margin-top: 15px;
+            border: 2px solid #ddd;
+            display: none;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resultBox {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e2f0d9;
+            border: 1px solid #385723;
+            border-radius: 4px;
+            display: none;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload & See It Live!</h1>
+        <p>Pick a file, upload it, and get a real link.</p>
+        
+        <input type="file" id="fileChooser" accept="image/*">
+        <br>
+        <img id="preview" alt="Local preview">
+        <br>
+        <button id="uploadBtn">Upload to Internet</button>
+
+        <div id="resultBox">
+            <p><strong>🎉 Success! Your live image link:</strong></p>
+            <a id="liveLink" href="#" target="_blank">Click here to see your image</a>
+        </div>
+    </div>
+
+    <script>
+        const fileChooser = document.getElementById('fileChooser');
+        const previewImage = document.getElementById('preview');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const resultBox = document.getElementById('resultBox');
+        const liveLink = document.getElementById('liveLink');
+        
+        let selectedFile = null;
+
+        fileChooser.addEventListener('change', (event) => {
+            selectedFile = event.target.files[0]; 
+            if (selectedFile) {
+                previewImage.src = URL.createObjectURL(selectedFile);
+                previewImage.style.display = 'inline-block';
+                resultBox.style.display = 'none'; 
+            }
+        });
+
+        uploadBtn.addEventListener('click', () => {
+            if (!selectedFile) {
+                alert("Please choose a picture first!");
+                return;
+            }
+
+            const uploadUrl = "https://api.escuelajs.co/api/v1/files/upload";
+
+            const formData = new FormData();
+            formData.append("file", selectedFile); 
+
+            uploadBtn.innerText = "Uploading... ⏳";
+            uploadBtn.disabled = true;
+
+            fetch(uploadUrl, {
+                method: "POST",
+                body: formData 
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Upload failed");
+                return response.json();
+            })
+            .then(data => {
+                console.log("Server data response:", data);
+                const internetUrl = data.location; 
+
+                liveLink.href = internetUrl;
+                liveLink.innerText = internetUrl;
+                resultBox.style.display = 'block';
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Something went wrong with the server.");
+            })
+            .finally(() => {
+                uploadBtn.innerText = "Upload to Internet";
+                uploadBtn.disabled = false;
+            });
+        });
+    </script>
+
+</body>
+</html>
