@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            height:40vh;
+            width:30%;
+            background-color: purple;
+            left:0%;
+            position:absolute;
+        }
+        .two{
+            height:40vh;
+            width:30%;
+            position:absolute;
+            left:32%;
+            background-color:palevioletred
+        }
+
+        .three{
+            height:40vh;
+            width:30%;
+            background-color:darkgreen;
+            position:absolute;
+            left:64%;
+        }
+
+
+
+
+        @media screen and (max-width: 575px) 
+        {
+            .one{
+                width:100%;
+                position:relative;
+                left:0%;
+                margin:5px;
+                }
+                }
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+.one{
+width:48%;
+left:0%;
+position:absolute;
+float:left;
+
+}
+}
+
+
+@media screen and (max-width: 575px) 
+        {
+            .two{
+                width:100%; 
+            position:relative;
+        left:0%;    
+    margin:5px;           }
+                }
+ @media screen and (min-width: 576px) and (max-width: 767px) {
+.two{
+width:48%;
+position:absolute;
+float:right;
+left:50%;
+}
+}
+
+
+@media screen and (max-width: 575px) 
+        {
+            .three{
+                width:100%;
+                position:relative;
+                left:0%;
+                margin:5px;
+                }
+                }
+ @media screen and (min-width: 576px) and (max-width: 767px) {
+.three{
+width:48%;
+position:absolute;
+float:left;
+top:50%;
+left:0%
+}
+}
+
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+</body>
+</html>
