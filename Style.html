@@ -2,94 +2,58 @@
 <html lang="en">
 <head>
     <style>
-        
+        nav{
+            background-color: rgb(72, 191, 230);
+            height:600px;
+            width:40%;
+            text-align: center;
+            float:left;
+        }
+        section{
+            background-color: lightgray;
+            width:60%;
+            height:300px;
+            float:right;
+        }
+        article{
+            background-color: blue;
+            width:40%;
+            float:left;
+            height:220px;
+            margin:30px;
+            color:white;
+            border:2px solid azure;
+
+        }
+        aside{
+            background-color: lightpink;
+            width:30%;
+            float:right;
+            border:2px solid antiquewhite;
+        }
+        .abc{
+            height:100px;
+            margin-top:30px;
+            margin-right:50px;
+        }
+        .abc2{
+            height:220px;
+            margin:10px;
+            margin-right:50px;
+            margin-top:30px;
+        }
     </style>
 </head>
 <body>
-    <div>
-        <nav style="background-color:rgb(10, 47, 231);
-        height:500px;
-        border:2px solid gray;
-        padding:20px;
-        text-align:center;
-        color:white
-        ">
-            Navigation tab
-        <section 
-        style="background-color: beige;
-        float:right;
-        width:80%;
-        border:2px solid gray;
-        height:220px;
-        margin:10px;
-        ">Section1
-        <article style="background-color:pink;
-        color:aliceblue;
-        height:110px;
-        border:2px solid gray;
-        width:630px;
-        text-align:center;
-        margin:20px;
-        padding:20px;">Article</article>
-        <aside style="background-color:cadetblue;
-        padding:30px;
-        width:330px;
-        height:8px;
-        float:right;
-        position:relative;
-        bottom:200px;
-        border:2px solid gray;
-        margin:30px
-
-        ">
-            Aside
-        </aside>
-    <aside style="background-color:cadetblue;
-        padding:30px;
-        width:330px;
-        height:8px;
-        float:right;
-        position:relative;
-        bottom:250px;
-        margin:30px;
-        border:2px solid gray;
-        clear:both;
-        ">
-            Aside
-        </aside></section>
-        <section
-        style="background-color: beige;
-        float:right;
-        width:80%;
-        height:220px;
-        border:2px solid gray;
-        margin:10px
-        ">Section2
-        <article style="background-color:pink;
-        height:110px;
-        width:630px;
-        margin:20px;
-        text-align:center;
-        border:2px solid gray;
-        color:aliceblue;
-        padding:20px;">Article</article>
-        <aside style="background-color:cadetblue;
-        padding:30px;
-        width:330px;
-        height:85px;
-        float:right;
-        border:2px solid gray;
-        position:relative;
-        bottom:200px;
-        margin:30px;
-        text-align:center;
-
-        ">
-            Aside
-        </aside></section>
-        </nav>
-        
-    </div>
-    
+    <nav>nav</nav>
+    <section><div>Section</div>
+        <article>Article</article>
+        <aside class="abc">Aside</aside>
+        <aside class="abc">Aside</aside>
+    </section>
+    <section><div>Section</div>
+        <article>Article</article>
+        <aside class="abc2">Aside</aside>
+    </section>
 </body>
 </html>
